@@ -38,8 +38,8 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+let logo = document.getElementById('logo-img');
+logo.setAttribute('src', siteContent['nav']['img-src'])
 
 //Navigation
 
@@ -50,11 +50,12 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
     // }
 
   // for each
-    document.querySelectorAll("nav a").forEach(function(el, i) {
-      el.textContent = siteContent.nav["nav-item-" + i]
+    document.querySelectorAll('nav a').forEach(function(el, i) {
+      el.textContent = siteContent.nav['nav-item-' + i]
+      // el.style.color = 'green';
     })
 
-//cta
+    //cta
   //text
     document.querySelector('.cta-text h1').innerHTML = siteContent.cta["h1"].replace(/ /g, " <br> ");
 
@@ -75,11 +76,11 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
   
   //text
 
-    let mainTxt = siteContent["main-content"];
-    delete mainTxt["middle-img-src"];
+    let mainTxt = siteContent['main-content'];
+    delete mainTxt['middle-img-src'];
     let i = 0;
 
-    document.querySelectorAll(".text-content").forEach(function(el) {
+    document.querySelectorAll('.text-content').forEach(function(el) {
       el.firstElementChild.textContent = Object.values(mainTxt)[i]
       el.lastElementChild.textContent = Object.values(mainTxt)[Number(i+1)]
       i = i + 2;
@@ -91,8 +92,50 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
       contact.children[i].textContent = Object.values(siteContent["contact"])[i]
     }
 
-    var contactBr =  document.querySelector('.contact p').innerHTML.replace("Street", 'Street <br />');
+    var contactBr =  document.querySelector('.contact p').innerHTML.replace('Street', 'Street <br />');
     document.querySelector('.contact p').innerHTML = contactBr
 
 //footer
-  document.querySelector('footer p').textContent = siteContent.footer["copyright"];
+  document.querySelector('footer p').textContent = siteContent.footer['copyright'];
+
+
+var navNewElem = document.createElement('a');
+navNewElem.text = 'Industries'
+navNewElem.setAttribute('href', '#')
+// navNewElem.style.color = 'green'
+document.querySelector('nav').appendChild(navNewElem);
+
+var link = document.createElement("link");
+link.setAttribute('href', 'https://fonts.googleapis.com/icon?family=Material+Icons')
+link.setAttribute('rel', 'stylesheet')
+document.head.appendChild(link);
+
+var navNewPre= document.createElement('i');
+navNewPre.textContent = 'cloud'
+navNewPre.style.fontSize = '50px'
+navNewPre.style.color = 'lightblue'
+navNewPre.style.textShadow = '2px 2px 4px #000000'
+navNewPre.setAttribute('class', 'material-icons')
+document.querySelector('nav').prepend(navNewPre)
+
+
+// //stretch 
+// document.querySelector('.cta-text button').setAttribute('onclick', 'myFunction()')
+// function myFunction() {
+//   var node = document.createElement('li');
+//   var d = new Date();
+//   node.textContent = d
+//   document.querySelector(".cta-text").appendChild(node);
+// }
+
+var style = (function() {
+  var style = document.createElement("style");
+  style.appendChild(document.createTextNode(""));
+  document.head.appendChild(style);
+  console.log(style.sheet.cssRules); 
+  return style;
+})();
+
+style.sheet.insertRule('nav a:hover{color:white !important; background-color:green !important;  padding: 10px 10px; margin: 1px;}', 0);
+style.sheet.insertRule('nav{display:flex; align-items:center; justify-content:space-between;  padding: 20px 2%; margin: 1px;}', 1);
+style.sheet.insertRule('nav a{color:green !important; text-decoration: none;}', 2);
