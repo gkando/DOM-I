@@ -42,20 +42,12 @@ let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src'])
 
 //Navigation
-
-  // for loop
-    // let nav = document.querySelectorAll("nav a");
-    // for (i = 0; i < nav.length; i++) {
-    //   nav[i].textContent = siteContent.nav["nav-item-" + i]
-    // }
-
-  // for each
     document.querySelectorAll('nav a').forEach(function(el, i) {
       el.textContent = siteContent.nav['nav-item-' + i]
       // el.style.color = 'green';
     })
 
-    //cta
+//cta
   //text
     document.querySelector('.cta-text h1').innerHTML = siteContent.cta["h1"].replace(/ /g, " <br> ");
 
@@ -63,19 +55,14 @@ logo.setAttribute('src', siteContent['nav']['img-src'])
     document.querySelector('.cta-text button').textContent = siteContent.cta["button"];
   
   //img
-    // let ctaimg = document.getElementById("cta-img");
     document.getElementById('cta-img').setAttribute('src', siteContent["cta"]["img-src"]);
 
 // top content
-
-  let text = document.querySelectorAll('.text-content');
-  
+ 
   //img
-
     document.getElementById('middle-img').setAttribute('src', siteContent["main-content"]["middle-img-src"]);
   
   //text
-
     let mainTxt = siteContent['main-content'];
     delete mainTxt['middle-img-src'];
     let i = 0;
@@ -99,43 +86,47 @@ logo.setAttribute('src', siteContent['nav']['img-src'])
   document.querySelector('footer p').textContent = siteContent.footer['copyright'];
 
 
-var navNewElem = document.createElement('a');
-navNewElem.text = 'Industries'
-navNewElem.setAttribute('href', '#')
-// navNewElem.style.color = 'green'
-document.querySelector('nav').appendChild(navNewElem);
+//other
 
-var link = document.createElement("link");
-link.setAttribute('href', 'https://fonts.googleapis.com/icon?family=Material+Icons')
-link.setAttribute('rel', 'stylesheet')
-document.head.appendChild(link);
+  //append elements
+    var navNewElem = document.createElement('a');
+    navNewElem.text = 'Industries'
+    navNewElem.setAttribute('href', '#')
+    document.querySelector('nav').appendChild(navNewElem);
 
-var navNewPre= document.createElement('i');
-navNewPre.textContent = 'cloud'
-navNewPre.style.fontSize = '50px'
-navNewPre.style.color = 'lightblue'
-navNewPre.style.textShadow = '2px 2px 4px #000000'
-navNewPre.setAttribute('class', 'material-icons')
-document.querySelector('nav').prepend(navNewPre)
+  //prepend elements
+    var link = document.createElement("link");
+    link.setAttribute('href', 'https://fonts.googleapis.com/icon?family=Material+Icons')
+    link.setAttribute('rel', 'stylesheet')
+    document.head.appendChild(link);
 
+    var navNewPre= document.createElement('i');
+    navNewPre.textContent = 'cloud'
+    navNewPre.style.fontSize = '50px'
+    navNewPre.style.color = 'lightblue'
+    navNewPre.style.textShadow = '2px 2px 4px #000000'
+    navNewPre.setAttribute('class', 'material-icons')
+    document.querySelector('nav').prepend(navNewPre)
 
-// //stretch 
-// document.querySelector('.cta-text button').setAttribute('onclick', 'myFunction()')
-// function myFunction() {
-//   var node = document.createElement('li');
-//   var d = new Date();
-//   node.textContent = d
-//   document.querySelector(".cta-text").appendChild(node);
-// }
+//stretch 
+  // button to displa time
+    // document.querySelector('.cta-text button').setAttribute('onclick', 'myFunction()')
+    // function myFunction() {
+    //   var node = document.createElement('li');
+    //   var d = new Date();
+    //   node.textContent = d
+    //   document.querySelector(".cta-text").appendChild(node);
+    // }
 
-var style = (function() {
-  var style = document.createElement("style");
-  style.appendChild(document.createTextNode(""));
-  document.head.appendChild(style);
-  console.log(style.sheet.cssRules); 
-  return style;
-})();
+  //styling
+    var style = (function() {
+      var style = document.createElement("style");
+      style.appendChild(document.createTextNode(""));
+      document.head.appendChild(style);
+      console.log(style.sheet.cssRules); 
+      return style;
+    })();
 
-style.sheet.insertRule('nav a:hover{color:white !important; background-color:green !important;  padding: 10px 10px; margin: 1px;}', 0);
-style.sheet.insertRule('nav{display:flex; align-items:center; justify-content:space-between;  padding: 20px 2%; margin: 1px;}', 1);
-style.sheet.insertRule('nav a{color:green !important; text-decoration: none;}', 2);
+    style.sheet.insertRule('nav a:hover{color:white !important; background-color:green !important;  padding: 10px 10px; margin: 1px;}', 0);
+    style.sheet.insertRule('nav{display:flex; align-items:center; justify-content:space-between;  padding: 20px 2%; margin: 1px;}', 1);
+    style.sheet.insertRule('nav a{color:green !important; text-decoration: none;}', 2);
